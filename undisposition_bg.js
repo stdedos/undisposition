@@ -312,7 +312,13 @@ function globToRegex(glob) {
   return glob.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*')
 }
 
-async function setDynamicRule() {
+var _ruleUpdatePromise = Promise.resolve()
+function setDynamicRule() {
+  _ruleUpdatePromise = _ruleUpdatePromise.then(function () { return _setDynamicRuleImpl() }).catch(function () {})
+  return _ruleUpdatePromise
+}
+
+async function _setDynamicRuleImpl() {
   var listMode = (await localGetSync('listMode')) || 'blocklist'
   var baseCondition = {
     resourceTypes: ['main_frame', 'sub_frame', 'script'],
