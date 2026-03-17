@@ -119,10 +119,9 @@
         margin-bottom: 16px;
       }
 
-      .card p {
+      .card label {
         font-size: 0.9rem;
         color: var(--text-muted);
-        margin-bottom: 12px;
       }
 
       /* Segmented control */
@@ -318,12 +317,12 @@
       </div>
 
       <div id="blocklist-section" class="list-section active">
-        <p>Undisposition is active on all domains <strong>except</strong> these. One domain per line.</p>
+        <label for="blacklist">Undisposition is active on all domains <strong>except</strong> these. One domain per line.</label>
         <textarea id="blacklist" placeholder="example.com&#10;drive.google.com" spellcheck="false"></textarea>
       </div>
 
       <div id="allowlist-section" class="list-section">
-        <p>Undisposition is <strong>only</strong> active on these domains. One domain per line.</p>
+        <label for="allowlist">Undisposition is <strong>only</strong> active on these domains. One domain per line.</label>
         <textarea id="allowlist" placeholder="example.com&#10;gitlab.com" spellcheck="false"></textarea>
       </div>
 
@@ -335,7 +334,7 @@
 
     <div class="card">
       <h2>Domain Tester</h2>
-      <p>Check if a domain matches the current list.</p>
+      <label for="test">Check if a domain matches the current list.</label>
       <div class="tester-row">
         <input type="text" id="test" placeholder="https://example.com/file.pdf" spellcheck="false" />
         <button class="btn btn-secondary" id="testButton">Test</button>
